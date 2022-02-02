@@ -4,15 +4,12 @@ import meteordevelopment.meteorclient.MeteorClient;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
-
+import java.lang.invoke.MethodHandles;
+import anticope.tanuki.modules.*;
+import net.minecraft.item.Items;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.item.Items;
-
-import anticope.tanuki.modules.*;
-
-import java.lang.invoke.MethodHandles;
 
 public class Tanuki extends MeteorAddon {
 	public static final Logger LOG = LogManager.getLogger();
