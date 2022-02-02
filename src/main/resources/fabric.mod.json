@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "tanuki",
+  "version": "${version}",
+  "name": "Tanuki",
+  "description": "An addon template for the Meteor addons.",
+  "authors": [
+    "Walaryne",
+    "Cloudburst"
+  ],
+  "contact": {
+    "repo": "https://github.com/MeteorDevelopment/meteor-addon-template"
+  },
+  "icon": "assets/tanuki/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "meteor": [
+      "anticope.tanuki.Tanuki"
+    ]
+  },
+  "mixins": [
+    "tanuki.mixins.json"
+  ],
+  "custom": {
+    "meteor-client:color": "230,128,139"
+  },
+  "depends": {
+    "java": ">=17",
+    "minecraft": ">=1.18",
+    "meteor-client": "*"
+  }
+}
