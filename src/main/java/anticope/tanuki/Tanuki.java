@@ -21,10 +21,11 @@ public class Tanuki extends MeteorAddon {
 
 		// Required when using @EventHandler
 		MeteorClient.EVENT_BUS.registerLambdaFactory("anticope.tanuki", (lookupInMethod, klass) -> (MethodHandles.Lookup) lookupInMethod.invoke(null, klass, MethodHandles.lookup()));
-	
+
 		Modules modules = Modules.get();
 		modules.add(new AntiCrystal());
 		modules.add(new AntiCrystalPhase());
+        modules.add(new AntiDrop());
 		modules.add(new AutoGriffer());
 		modules.add(new BedrockWalk());
 		modules.add(new Confetti());
