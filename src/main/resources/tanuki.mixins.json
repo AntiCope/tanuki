@@ -3,9 +3,10 @@
   "package": "anticope.tanuki.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "meteor.CrystalAuraAccessor",
+    "ClientPlayerEntityMixin",
     "TotemParticleMixin",
-    "ClientPlayerEntityMixin"
+    "meteor.CrystalAuraAccessor",
+    "meteor.ProfileMixin"
   ],
   "injectors": {
     "defaultRequire": 1
