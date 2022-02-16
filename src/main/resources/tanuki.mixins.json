@@ -5,6 +5,7 @@
   "client": [
     "ClientPlayerEntityMixin",
     "TotemParticleMixin",
+    "TitleScreenMixin",
     "meteor.CrystalAuraAccessor",
     "meteor.ProfileMixin"
   ],
