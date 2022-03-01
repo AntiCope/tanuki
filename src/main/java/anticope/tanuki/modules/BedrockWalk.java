@@ -139,7 +139,7 @@ public class BedrockWalk extends Module {
         Vec3d targetPos = findNearestBlock(mc.player.getX(), driftToHeight.get() -1, mc.player.getZ());
         if (targetPos == null) return;
         if (mc.player.getY() == targetPos.getY() + 1.0D) return;
-        if (mc.options.keyJump.isPressed()) return;
+        if (mc.options.jumpKey.isPressed()) return;
         if (updatePositionFailsafe.get() && !successfulLanding && mc.player.getY() < (driftToHeight.get() -  failsafeWindow.get())) {
             mc.player.setPos(targetPos.getX(), targetPos.getY() + 1.0D, targetPos.getZ());
         }
@@ -171,7 +171,7 @@ public class BedrockWalk extends Module {
         }
 
         validBlocks.forEach(blockPos -> {
-            sortedBlocks.put(blockPos.getSquaredDistance(x, y, z, true), blockPos);
+            sortedBlocks.put(blockPos.getSquaredDistanceFromCenter(x, y, z, true), blockPos);
         });
 
         Map.Entry<Double, BlockPos> firstEntry = sortedBlocks.firstEntry();

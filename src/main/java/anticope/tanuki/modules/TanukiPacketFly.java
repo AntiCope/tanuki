@@ -128,27 +128,27 @@ public class TanukiPacketFly extends Module {
         if (mc.player.getYaw() != lastYaw) mc.player.setYaw(lastYaw);
 
         PlayerEntity p = mc.player;
-        if (mc.options.keyForward.isPressed()) {
+        if (mc.options.forwardKey.isPressed()) {
             Vec3d forward = Vec3d.fromPolar(0, mc.player.getYaw());
             mc.getNetworkHandler().sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(p.getX() + forward.x * packetFlySpeed.get(), p.getY(), p.getZ() + forward.z * packetFlySpeed.get(), false));
         }
 
-        if (mc.options.keyBack.isPressed()) {
+        if (mc.options.backKey.isPressed()) {
             Vec3d forward = Vec3d.fromPolar(0, p.getYaw() - 180);
             mc.getNetworkHandler().sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(p.getX() + forward.x * packetFlySpeed.get(), p.getY(), p.getZ() + forward.z * packetFlySpeed.get(), false));
         }
 
-        if (mc.options.keyLeft.isPressed()) {
+        if (mc.options.leftKey.isPressed()) {
             Vec3d forward = Vec3d.fromPolar(0, p.getYaw() - 90);
             mc.getNetworkHandler().sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(p.getX() + forward.x * packetFlySpeed.get(), p.getY(), p.getZ() + forward.z * packetFlySpeed.get(), false));
         }
 
-        if (mc.options.keyRight.isPressed()) {
+        if (mc.options.rightKey.isPressed()) {
             Vec3d forward = Vec3d.fromPolar(0, p.getYaw() - 270);
             mc.getNetworkHandler().sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(p.getX() + forward.x * packetFlySpeed.get(), p.getY(), p.getZ() + forward.z * packetFlySpeed.get(), false));
         }
 
-        if (mc.options.keyJump.isPressed()) {
+        if (mc.options.jumpKey.isPressed()) {
             mc.getNetworkHandler().sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(p.getX(), p.getY() + 0.05 * verticalPacketSpeed.get(), p.getZ(), false));
         }
 
