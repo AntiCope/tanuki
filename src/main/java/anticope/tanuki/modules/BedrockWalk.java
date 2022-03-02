@@ -171,7 +171,7 @@ public class BedrockWalk extends Module {
         }
 
         validBlocks.forEach(blockPos -> {
-            sortedBlocks.put(blockPos.getSquaredDistanceFromCenter(x, y, z, true), blockPos);
+            sortedBlocks.put(blockPos.getSquaredDistanceFromCenter(x, y, z), blockPos);
         });
 
         Map.Entry<Double, BlockPos> firstEntry = sortedBlocks.firstEntry();

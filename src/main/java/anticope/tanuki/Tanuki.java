@@ -10,12 +10,12 @@ import java.lang.invoke.MethodHandles;
 import anticope.tanuki.modules.*;
 import anticope.tanuki.modules.hud.*;
 import net.minecraft.item.Items;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class Tanuki extends MeteorAddon {
-	public static final Logger LOG = LogManager.getLogger();
+	public static final Logger LOG = LoggerFactory.getLogger("Tanuki");
 	public static final Category CATEGORY = new Category("Tanuki", Items.BROWN_WOOL.getDefaultStack());
 
 	@Override
