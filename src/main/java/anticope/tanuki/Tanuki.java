@@ -1,6 +1,7 @@
 package anticope.tanuki;
 
 import meteordevelopment.meteorclient.MeteorClient;
+import meteordevelopment.meteorclient.addons.GithubRepo;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.Systems;
 import meteordevelopment.meteorclient.systems.hud.HUD;
@@ -9,6 +10,8 @@ import meteordevelopment.meteorclient.systems.modules.Modules;
 import java.lang.invoke.MethodHandles;
 import anticope.tanuki.modules.*;
 import anticope.tanuki.modules.hud.*;
+
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,4 +46,25 @@ public class Tanuki extends MeteorAddon {
 	public void onRegisterCategories() {
 		Modules.registerCategory(CATEGORY);
 	}
+
+	@Override
+    public String getWebsite() {
+        return "https://github.com/AntiCope/tanuki";
+    }
+
+    @Override
+    public GithubRepo getRepo() {
+        return new GithubRepo("AntiCope", "tanuki");
+    }
+
+    @Override
+    public String getCommit() {
+        String commit = FabricLoader
+            .getInstance()
+            .getModContainer("tanuki")
+            .get().getMetadata()
+            .getCustomValue("github:sha")
+            .getAsString();
+        return commit.isEmpty() ? null : commit.trim();
+    }
 }

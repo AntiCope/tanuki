@@ -9,7 +9,7 @@
     "Cloudburst"
   ],
   "contact": {
-    "repo": "https://github.com/MeteorDevelopment/meteor-addon-template"
+    "repo": "https://github.com/AntiCope/tanuki"
   },
   "icon": "assets/tanuki/icon.png",
   "environment": "client",
@@ -23,7 +23,7 @@
   ],
   "custom": {
     "meteor-client:color": "230,128,139",
-    "updater:sha": "@gh_hash@"
+    "github:sha": "@gh_hash@"
   },
   "depends": {
     "java": ">=17",
