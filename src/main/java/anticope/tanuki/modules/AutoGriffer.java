@@ -92,7 +92,7 @@ public class AutoGriffer extends Module {
                         stage++;
                         break;
                     case 2:
-                        mc.interactionManager.interactItem(mc.player, mc.world, Hand.MAIN_HAND);
+                        mc.interactionManager.interactItem(mc.player, Hand.MAIN_HAND);
                         toggle();
                         break;
                 }
