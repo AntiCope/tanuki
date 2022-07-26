@@ -1,32 +1,24 @@
 package anticope.tanuki;
 
-import meteordevelopment.meteorclient.MeteorClient;
+import com.mojang.logging.LogUtils;
 import meteordevelopment.meteorclient.addons.GithubRepo;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
-import meteordevelopment.meteorclient.systems.Systems;
-import meteordevelopment.meteorclient.systems.hud.HUD;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
-import java.lang.invoke.MethodHandles;
 import anticope.tanuki.modules.*;
-import anticope.tanuki.modules.hud.*;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Items;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 public class Tanuki extends MeteorAddon {
-	public static final Logger LOG = LoggerFactory.getLogger("Tanuki");
+	public static final Logger LOG = LogUtils.getLogger();
 	public static final Category CATEGORY = new Category("Tanuki", Items.BROWN_WOOL.getDefaultStack());
 
 	@Override
 	public void onInitialize() {
 		LOG.info("Initializing Tanuki");
-
-		// Required when using @EventHandler
-		MeteorClient.EVENT_BUS.registerLambdaFactory("anticope.tanuki", (lookupInMethod, klass) -> (MethodHandles.Lookup) lookupInMethod.invoke(null, klass, MethodHandles.lookup()));
 
 		Modules modules = Modules.get();
 		modules.add(new AntiCrystal());
@@ -37,9 +29,6 @@ public class Tanuki extends MeteorAddon {
 		modules.add(new FuckedDetector());
 		modules.add(new PauseOnUnloaded());
         modules.add(new TanukiPacketFly());
-
-        HUD hud = Systems.get(HUD.class);
-        hud.elements.add(new ProfileHud(hud));
 	}
 
 	@Override
@@ -47,7 +36,12 @@ public class Tanuki extends MeteorAddon {
 		Modules.registerCategory(CATEGORY);
 	}
 
-	@Override
+    @Override
+    public String getPackage() {
+        return "anticope.tanuki";
+    }
+
+    @Override
     public String getWebsite() {
         return "https://github.com/AntiCope/tanuki";
     }

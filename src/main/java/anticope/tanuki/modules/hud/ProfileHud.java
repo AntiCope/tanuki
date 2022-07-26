@@ -1,34 +1,31 @@
 package anticope.tanuki.modules.hud;
 
-import net.minecraft.nbt.NbtCompound;
+import meteordevelopment.meteorclient.systems.hud.HudElementInfo;
+import meteordevelopment.meteorclient.systems.hud.elements.MeteorTextHud;
+import meteordevelopment.meteorclient.systems.hud.elements.TextHud;
+import meteordevelopment.meteorclient.utils.PreInit;
+import meteordevelopment.meteorclient.utils.misc.MeteorStarscript;
+import meteordevelopment.starscript.value.Value;
 
-import meteordevelopment.meteorclient.systems.hud.HUD;
-import meteordevelopment.meteorclient.systems.hud.modules.DoubleTextHudElement;
-import meteordevelopment.meteorclient.systems.hud.modules.HudElement;
+public class ProfileHud {
+    public static final HudElementInfo<TextHud>.Preset PROFILE = addPreset("profile", "Profile: #1{last_loaded_profile}", 20);
 
-public class ProfileHud extends DoubleTextHudElement {
+    private static HudElementInfo<TextHud>.Preset addPreset(String title, String text, int updateDelay) {
+        return MeteorTextHud.INFO.addPreset(title, (textHud) -> {
+            if (text != null) {
+                textHud.text.set(text);
+            }
 
-    public ProfileHud(HUD hud) {
-        super(hud, "profile", "Displays the last loaded profile.", "Profile: ");
+            if (updateDelay != -1) {
+                textHud.updateDelay.set(updateDelay);
+            }
+        });
     }
 
     public static String lastLoadedProfile = "-";
 
-    @Override
-    protected String getRight() {
-        return lastLoadedProfile;
-    }
-
-    @Override
-    public NbtCompound toTag() {
-        NbtCompound tag = super.toTag();
-        tag.putString("lastProfile", "lastLoadedProfile");
-        return tag;
-    }
-
-    @Override
-    public HudElement fromTag(NbtCompound tag) {
-        lastLoadedProfile = tag.getString("lastProfile");
-        return super.fromTag(tag);
+    @PreInit
+    public static void init() {
+        MeteorStarscript.ss.set("last_loaded_profile", () -> Value.string(lastLoadedProfile));
     }
 }
