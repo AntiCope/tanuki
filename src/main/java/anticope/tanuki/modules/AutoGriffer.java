@@ -34,7 +34,7 @@ public class AutoGriffer extends Module {
             .min(0)
             .build());
 
-    private PlayerEntity target;
+    private static PlayerEntity target;
     private int stage;
 
     @Override
@@ -61,16 +61,16 @@ public class AutoGriffer extends Module {
         }
 
         if (target == null) {
-            for (FakePlayerEntity player : FakePlayerManager.getPlayers()) {
+            FakePlayerManager.forEach(player -> {
                 if (!Friends.get().shouldAttack(player) || !player.isAlive()
                         || mc.player.distanceTo(player) > range.get())
-                    continue;
+                    return;
 
                 if (target == null)
                     target = player;
                 else if (mc.player.distanceTo(target) > mc.player.distanceTo(player))
                     target = player;
-            }
+            });
         }
         if (target == null) {
             stage = 1;

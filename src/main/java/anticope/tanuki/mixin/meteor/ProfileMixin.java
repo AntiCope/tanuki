@@ -13,6 +13,6 @@ public class ProfileMixin {
     @Inject(method = "load()V", at = @At("TAIL"), remap = false)
     private void onLoad(CallbackInfo ci) {
         Profile thisObject = (Profile) (Object) this;
-        ProfileHud.lastLoadedProfile = thisObject.name;
+        ProfileHud.lastLoadedProfile = thisObject.name.get();
     }
 }
