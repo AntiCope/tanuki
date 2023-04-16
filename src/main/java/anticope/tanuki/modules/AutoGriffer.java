@@ -84,7 +84,7 @@ public class AutoGriffer extends Module {
                             toggle();
                             return;
                         } else {
-                            BlockPos anvil1 = target.getBlockPos().add(0, 1.3, 0);
+                            BlockPos anvil1 = target.getBlockPos().add(0, 1, 0);
                             mc.player.setPitch((float) Rotations.getPitch(anvil1));
                             mc.player.setYaw((float) Rotations.getYaw(anvil1));
                             InvUtils.swap(lava.slot(), false);

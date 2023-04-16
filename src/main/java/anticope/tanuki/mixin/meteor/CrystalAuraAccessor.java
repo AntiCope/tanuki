@@ -7,7 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 
 import meteordevelopment.meteorclient.systems.modules.combat.CrystalAura;
 
-@Mixin(CrystalAura.class)
+@Mixin(value = CrystalAura.class, remap = false)
 public interface CrystalAuraAccessor {
     @Accessor("bestTarget")
     PlayerEntity bestTarget();
