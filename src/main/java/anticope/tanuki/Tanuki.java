@@ -12,28 +12,28 @@ import org.slf4j.Logger;
 
 
 public class Tanuki extends MeteorAddon {
-	public static final Logger LOG = LogUtils.getLogger();
-	public static final Category CATEGORY = new Category("Tanuki", Items.BROWN_WOOL.getDefaultStack());
+    public static final Logger LOG = LogUtils.getLogger();
+    public static final Category CATEGORY = new Category("Tanuki", Items.BROWN_WOOL.getDefaultStack());
 
-	@Override
-	public void onInitialize() {
-		LOG.info("Initializing Tanuki");
+    @Override
+    public void onInitialize() {
+        LOG.info("Initializing Tanuki");
 
-		Modules modules = Modules.get();
-		modules.add(new AntiCrystal());
-		modules.add(new AntiCrystalPhase());
-		modules.add(new AutoGriffer());
-		modules.add(new BedrockWalk());
-		modules.add(new Confetti());
-		modules.add(new FuckedDetector());
-		modules.add(new PauseOnUnloaded());
+        Modules modules = Modules.get();
+        modules.add(new AntiCrystal());
+        modules.add(new AntiCrystalPhase());
+        modules.add(new AutoGriffer());
+        modules.add(new BedrockWalk());
+        modules.add(new Confetti());
+        modules.add(new FuckedDetector());
+        modules.add(new PauseOnUnloaded());
         modules.add(new TanukiPacketFly());
-	}
+    }
 
-	@Override
-	public void onRegisterCategories() {
-		Modules.registerCategory(CATEGORY);
-	}
+    @Override
+    public void onRegisterCategories() {
+        Modules.registerCategory(CATEGORY);
+    }
 
     @Override
     public String getPackage() {

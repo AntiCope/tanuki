@@ -16,9 +16,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class BedrockWalk extends Module {
-        private final SettingGroup sgGeneral = settings.getDefaultGroup();
+    private final SettingGroup sgGeneral = settings.getDefaultGroup();
 
-        private final Setting<Double> activationWindow = sgGeneral.add(new DoubleSetting.Builder()
+    private final Setting<Double> activationWindow = sgGeneral.add(new DoubleSetting.Builder()
         .name("activation-window")
         .description("The area above the target Y level at which pull activates.")
         .min(0.2D)
@@ -51,7 +51,7 @@ public class BedrockWalk extends Module {
         .sliderMax(10.0D)
         .defaultValue(1.0D)
         .build()
-        );
+    );
 
 
     private final Setting<Double> verticalPullStrength = sgGeneral.add(new DoubleSetting.Builder()
@@ -131,16 +131,16 @@ public class BedrockWalk extends Module {
     @EventHandler
     private void onTick(TickEvent.Post event) {
         if (mc.player.getY() > driftToHeight.get() + activationWindow.get()) return;
-        Vec3d targetPos = findNearestBlock(mc.player.getX(), driftToHeight.get() -1, mc.player.getZ());
+        Vec3d targetPos = findNearestBlock(mc.player.getX(), driftToHeight.get() - 1, mc.player.getZ());
         if (targetPos == null) return;
         if (mc.player.getY() == targetPos.getY() + 1.0D) return;
         if (mc.options.jumpKey.isPressed()) return;
-        if (updatePositionFailsafe.get() && !successfulLanding && mc.player.getY() < (driftToHeight.get() -  failsafeWindow.get())) {
+        if (updatePositionFailsafe.get() && !successfulLanding && mc.player.getY() < (driftToHeight.get() - failsafeWindow.get())) {
             mc.player.setPos(targetPos.getX(), targetPos.getY() + 1.0D, targetPos.getZ());
         }
         Vec3d normalizedDirection = targetPos.subtract(mc.player.getPos()).normalize();
         Vec3d velocity = mc.player.getVelocity();
-        ((IVec3d)mc.player.getVelocity()).set(
+        ((IVec3d) mc.player.getVelocity()).set(
             velocity.x + normalizedDirection.x * horizontalPullStrength.get() * mc.getTickDelta(),
             velocity.y + normalizedDirection.y * verticalPullStrength.get() * mc.getTickDelta(),
             velocity.z + normalizedDirection.z * horizontalPullStrength.get() * mc.getTickDelta()
@@ -159,7 +159,7 @@ public class BedrockWalk extends Module {
         for (int ix = 0; ix < rad; ix++) {
             for (int iy = 0; iy < rad; iy++) {
                 BlockState block = mc.world.getBlockState(blockPos.set(x - ((rad - 1) / 2 - ix), y, x - ((rad - 1) / 2 - iy)));
-                if (!block.isAir() &&!(block.getBlock() instanceof FluidBlock)) {
+                if (!block.isAir() && !(block.getBlock() instanceof FluidBlock)) {
                     validBlocks.add(blockPos.mutableCopy());
                 }
             }

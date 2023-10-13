@@ -26,11 +26,11 @@ public class AutoGriffer extends Module {
     }
 
     private final Setting<Double> range = sgPlace.add(new DoubleSetting.Builder()
-            .name("range")
-            .description("How far away the target can be to be affected.")
-            .defaultValue(4)
-            .min(0)
-            .build());
+        .name("range")
+        .description("How far away the target can be to be affected.")
+        .defaultValue(4)
+        .min(0)
+        .build());
 
     private static PlayerEntity target;
     private int stage;
@@ -49,7 +49,7 @@ public class AutoGriffer extends Module {
 
         for (PlayerEntity player : mc.world.getPlayers()) {
             if (player == mc.player || !Friends.get().shouldAttack(player) || !player.isAlive()
-                    || mc.player.distanceTo(player) > range.get())
+                || mc.player.distanceTo(player) > range.get())
                 continue;
 
             if (target == null)
@@ -61,7 +61,7 @@ public class AutoGriffer extends Module {
         if (target == null) {
             FakePlayerManager.forEach(player -> {
                 if (!Friends.get().shouldAttack(player) || !player.isAlive()
-                        || mc.player.distanceTo(player) > range.get())
+                    || mc.player.distanceTo(player) > range.get())
                     return;
 
                 if (target == null)

@@ -14,6 +14,6 @@ public class ClientPlayerEntityMixin {
     private void onPushOutOfBlocks(double x, double d, CallbackInfo info) {
         PushOutOfBlockEvent event = PushOutOfBlockEvent.get(x, d);
         MeteorClient.EVENT_BUS.post(event);
-        if(event.isCancelled()) info.cancel();
+        if (event.isCancelled()) info.cancel();
     }
 }

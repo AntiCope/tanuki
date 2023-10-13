@@ -12,17 +12,17 @@ public class Confetti extends Module {
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
 
     private final Setting<SettingColor> colorOne = sgGeneral.add(new ColorSetting.Builder()
-            .name("color-one")
-            .description("The first confetti color to change.")
-            .defaultValue(new SettingColor(102, 0, 0, 255))
-            .build()
+        .name("color-one")
+        .description("The first confetti color to change.")
+        .defaultValue(new SettingColor(102, 0, 0, 255))
+        .build()
     );
 
     private final Setting<SettingColor> colorTwo = sgGeneral.add(new ColorSetting.Builder()
-            .name("color-two")
-            .description("The second confetti color to change.")
-            .defaultValue(new SettingColor(102, 0, 0, 255))
-            .build()
+        .name("color-two")
+        .description("The second confetti color to change.")
+        .defaultValue(new SettingColor(102, 0, 0, 255))
+        .build()
     );
 
     public Confetti() {
