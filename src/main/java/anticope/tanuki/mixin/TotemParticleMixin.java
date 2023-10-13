@@ -1,13 +1,12 @@
 package anticope.tanuki.mixin;
 
+import anticope.tanuki.modules.Confetti;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.client.particle.AnimatedParticle;
 import net.minecraft.client.particle.SpriteProvider;
 import net.minecraft.client.particle.TotemParticle;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.Vec3d;
-import anticope.tanuki.modules.Confetti;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -34,5 +33,4 @@ public abstract class TotemParticleMixin extends AnimatedParticle {
             }
         }
     }
-
 }

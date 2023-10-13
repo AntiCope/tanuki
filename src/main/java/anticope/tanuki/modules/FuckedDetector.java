@@ -1,20 +1,19 @@
 package anticope.tanuki.modules;
 
-import meteordevelopment.orbit.EventHandler;
+import anticope.tanuki.Tanuki;
+import anticope.tanuki.mixin.meteor.CrystalAuraAccessor;
 import meteordevelopment.meteorclient.events.render.Render3DEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
+import meteordevelopment.meteorclient.renderer.ShapeMode;
+import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import meteordevelopment.meteorclient.systems.modules.combat.CrystalAura;
-import meteordevelopment.meteorclient.renderer.ShapeMode;
-import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.utils.render.color.SettingColor;
+import meteordevelopment.orbit.EventHandler;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
-
-import anticope.tanuki.Tanuki;
-import anticope.tanuki.mixin.meteor.CrystalAuraAccessor;
 
 public class FuckedDetector extends Module {
     private final SettingGroup sgGeneral = settings.getDefaultGroup();

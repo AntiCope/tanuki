@@ -1,16 +1,15 @@
 package anticope.tanuki.modules;
 
-import meteordevelopment.orbit.EventHandler;
+import anticope.tanuki.Tanuki;
+import anticope.tanuki.events.PushOutOfBlockEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
-import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.settings.DoubleSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
+import meteordevelopment.meteorclient.systems.modules.Module;
+import meteordevelopment.orbit.EventHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.util.math.Vec3d;
-
-import anticope.tanuki.Tanuki;
-import anticope.tanuki.events.PushOutOfBlockEvent;
 
 
 public class AntiCrystalPhase extends Module {

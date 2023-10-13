@@ -1,23 +1,21 @@
 package anticope.tanuki.modules;
 
-import meteordevelopment.orbit.EventHandler;
+import anticope.tanuki.Tanuki;
 import meteordevelopment.meteorclient.events.world.TickEvent;
-import meteordevelopment.meteorclient.systems.friends.Friends;
-import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.settings.DoubleSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
-import meteordevelopment.meteorclient.utils.entity.fakeplayer.FakePlayerEntity;
+import meteordevelopment.meteorclient.systems.friends.Friends;
+import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.entity.fakeplayer.FakePlayerManager;
 import meteordevelopment.meteorclient.utils.player.FindItemResult;
 import meteordevelopment.meteorclient.utils.player.InvUtils;
 import meteordevelopment.meteorclient.utils.player.Rotations;
+import meteordevelopment.orbit.EventHandler;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
-
-import anticope.tanuki.Tanuki;
 
 public class AutoGriffer extends Module {
 
@@ -84,7 +82,7 @@ public class AutoGriffer extends Module {
                             toggle();
                             return;
                         } else {
-                            BlockPos anvil1 = target.getBlockPos().add(0, 1.3, 0);
+                            BlockPos anvil1 = target.getBlockPos().add(0, (int) 1.3, 0);
                             mc.player.setPitch((float) Rotations.getPitch(anvil1));
                             mc.player.setYaw((float) Rotations.getYaw(anvil1));
                             InvUtils.swap(lava.slot(), false);

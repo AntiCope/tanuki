@@ -1,12 +1,12 @@
 package anticope.tanuki.modules;
 
-import meteordevelopment.meteorclient.systems.modules.Module;
+import anticope.tanuki.Tanuki;
 import meteordevelopment.meteorclient.settings.ColorSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
+import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.render.color.SettingColor;
 import net.minecraft.util.math.Vec3d;
-import anticope.tanuki.Tanuki;
 
 public class Confetti extends Module {
     private final SettingGroup sgGeneral = settings.getDefaultGroup();

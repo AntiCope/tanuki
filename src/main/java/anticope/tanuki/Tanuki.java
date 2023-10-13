@@ -1,12 +1,11 @@
 package anticope.tanuki;
 
+import anticope.tanuki.modules.*;
 import com.mojang.logging.LogUtils;
 import meteordevelopment.meteorclient.addons.GithubRepo;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
-import anticope.tanuki.modules.*;
-
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Items;
 import org.slf4j.Logger;

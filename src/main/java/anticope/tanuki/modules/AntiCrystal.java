@@ -1,23 +1,17 @@
 package anticope.tanuki.modules;
 
+import anticope.tanuki.Tanuki;
 import com.google.common.collect.Streams;
-import meteordevelopment.orbit.EventHandler;
 import meteordevelopment.meteorclient.events.world.TickEvent;
+import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Module;
-import meteordevelopment.meteorclient.settings.BoolSetting;
-import meteordevelopment.meteorclient.settings.DoubleSetting;
-import meteordevelopment.meteorclient.settings.EnumSetting;
-import meteordevelopment.meteorclient.settings.Setting;
-import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.utils.player.FindItemResult;
 import meteordevelopment.meteorclient.utils.player.InvUtils;
 import meteordevelopment.meteorclient.utils.world.BlockUtils;
-
+import meteordevelopment.orbit.EventHandler;
 import net.minecraft.entity.decoration.EndCrystalEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-
-import anticope.tanuki.Tanuki;
 
 import java.util.Comparator;
 import java.util.Optional;
