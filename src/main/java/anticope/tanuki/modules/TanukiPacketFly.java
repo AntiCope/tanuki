@@ -105,7 +105,7 @@ public class TanukiPacketFly extends Module {
         }
         lastYaw = currentYaw;
 
-        if(tpConfirms >= tpConfirmCounter.get()) {
+        if (tpConfirms >= tpConfirmCounter.get()) {
             tpConfirms = 0;
         }
     }
@@ -113,14 +113,12 @@ public class TanukiPacketFly extends Module {
     @EventHandler
     private void onPostTick(TickEvent.Post event) {
         if (mc.player == null || mc.getNetworkHandler() == null) return;
-        if (antiKickMode.get() == AntiKickMode.Normal && delayLeft > 0) delayLeft --;
+        if (antiKickMode.get() == AntiKickMode.Normal && delayLeft > 0) delayLeft--;
 
         else if (antiKickMode.get() == AntiKickMode.Normal && delayLeft <= 0 && offLeft > 0) {
-            offLeft --;
+            offLeft--;
             return;
-        }
-
-        else if (antiKickMode.get() == AntiKickMode.Normal && delayLeft <=0 && offLeft <= 0) {
+        } else if (antiKickMode.get() == AntiKickMode.Normal && delayLeft <= 0 && offLeft <= 0) {
             delayLeft = delay.get();
             offLeft = offTime.get();
         }

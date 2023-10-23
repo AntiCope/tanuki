@@ -1,13 +1,12 @@
 package anticope.tanuki.mixin;
 
+import anticope.tanuki.modules.Confetti;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.client.particle.AnimatedParticle;
 import net.minecraft.client.particle.SpriteProvider;
 import net.minecraft.client.particle.TotemParticle;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.Vec3d;
-import anticope.tanuki.modules.Confetti;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,8 +22,8 @@ public abstract class TotemParticleMixin extends AnimatedParticle {
     @Inject(method = "<init>", at = @At("TAIL"))
     private void onConfettiConstructor(ClientWorld world, double x, double y, double z, double velocityX, double velocityY, double velocityZ, SpriteProvider spriteProvider, CallbackInfo ci) {
         Confetti confetti = Modules.get().get(Confetti.class);
-        TotemParticle totemParticle = ((TotemParticle)(Object) this);
-        if(confetti.isActive()) {
+        TotemParticle totemParticle = ((TotemParticle) (Object) this);
+        if (confetti.isActive()) {
             Vec3d colorOne = confetti.getColorOne();
             Vec3d colorTwo = confetti.getColorTwo();
             if (this.random.nextInt(4) == 0) {
@@ -34,5 +33,4 @@ public abstract class TotemParticleMixin extends AnimatedParticle {
             }
         }
     }
-
 }
